@@ -1,0 +1,180 @@
+<!--
+ Copyright © 2011, Erpak 
+ 
+ This file is part of JTrackPlanner3D.
+
+ JTrackPlanner3D is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ JTrackPlanner3D is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with JTrackPlanner3D. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE track_system SYSTEM "trackPlanner\JTrackPlanner\src\jTrackPlanner\resources\track_system.dtd">-->
+
+<track_system>
+	<track_system_infos scale="HO-1:87" manufacturer="Märklin" name="C_track" version="0.1" author="Erpak">
+		<track_system_designation language="default" comment="" designation="C track"/>
+		<track_system_designation language="fr" comment="Voie avec ballast integré (3 rails ~)" designation="Voie C"/>
+		<!-- Caracterisques generales du systeme de voies -->
+		<track_system_caracteristics railway_width="16.6" ballast_width="40"/>
+		<track_system_colors>
+			<rgb_color name="blue" comment="Straight tracks" r="0" g="111" b="185"/>
+			<rgb_color name="red" comment="R1 radius curved tracks" r="236" g="0" b="139"/>
+			<rgb_color name="green" comment="R2 radius curved tracks" r="0" g="168" b="80"/>
+			<rgb_color name="yellow" comment="R3 radius curved tracks" r="255" g="204" b="27"/>
+			<rgb_color name="purple" comment="R4 radius curved tracks" r="119" g="92" b="168"/>
+			<rgb_color name="light_gray" comment="R5 radius curved tracks" r="187" g="188" b="190"/>
+			<rgb_color name="dark_gray" comment="R9 radius curved tracks" r="87" g="88" b="90"/>
+		</track_system_colors>
+	</track_system_infos>
+	<!-- Elements -->
+	<!-- straight tracks -->
+	<straight_tracks name="straight_tracks">
+		<straight_track reference="24188" length="188.3" color="blue">
+			<description language="default" comment="" designation="straight track 24188"/>
+			<description language="fr" comment="" designation="Rail droit 24188"/>
+		</straight_track>
+		<straight_track reference="24172" length="171.7" color="blue">
+			<description language="default" comment="" designation="straight track 24172"/>
+			<description language="fr" comment="" designation="Rail droit 24172"/>
+		</straight_track>
+		<straight_track reference="24094" length="94.2" color="blue">
+			<description language="default" comment="" designation="straight track 24094"/>
+			<description language="fr" comment="" designation="Rail droit 24094"/>
+		</straight_track>
+		<straight_track reference="24064" length="63.4" color="blue">
+			<description language="default" comment="" designation="straight track 24064"/>
+			<description language="fr" comment="Correspond à l'entraxe de voies parallèles des aiguillages et croisements élancés" designation="Rail droit 24064"/>
+		</straight_track>
+		<straight_track reference="24071" length="70.8" color="blue">
+			<description language="default" comment="" designation="straight track 24071"/>
+			<description language="fr" comment="Bandes latérales du talus amovibles. Est utilisé aux deux branches des aiguillages et croisements élancés" designation="Rail droit 24071"/>
+		</straight_track>
+		<straight_track reference="24229" length="229.3" color="blue">
+			<description language="default" comment="" designation="straight track 24229"/>
+			<description language="fr" comment="Complète en longueur la contre courbe des aiguillages et croisements élancés" designation="Rail droit 24229"/>
+		</straight_track>
+		<straight_track reference="24236" length="236.1" color="blue">
+			<description language="default" comment="" designation="straight track 24236"/>
+			<description language="fr" comment="Correspond à la longueur des aiguillages élancés" designation="Rail droit 24236"/>
+		</straight_track>
+		<straight_track reference="24077" length="77.5" color="blue">
+			<description language="default" comment="" designation="straight track 24077"/>
+			<description language="fr" comment="" designation="Rail droit 24077"/>
+		</straight_track>
+	</straight_tracks>
+	<!-- curved tracks -->
+	<curved_tracks name="curved_tracks">
+		<curved_track reference="24130" radius="360" angle="30" color="red">
+			<description language="default" comment="R1" designation="Curved track R1 24130"/>
+			<description language="fr" comment="R1" designation="Rail courbe R1 24130"/>
+		</curved_track>
+		<curved_track reference="24115" radius="360" angle="15" color="red">
+			<description language="default" comment="R1" designation="Curved track R1 24115"/>
+			<description language="fr" comment="R1" designation="Rail courbe R1 24115"/>
+		</curved_track>
+		<curved_track reference="24107" radius="360" angle="7.5" color="red">
+			<description language="default" comment="R1" designation="Curved track R1 24107"/>
+			<description language="fr" comment="R1" designation="Rail courbe R1 24107"/>
+		</curved_track>
+		<curved_track reference="24230" radius="437.5" angle="30" color="green">
+			<description language="default" comment="R2" designation="Curved track R2 24230"/>
+			<description language="fr" comment="R2" designation="Rail courbe R2 24230"/>
+		</curved_track>
+		<curved_track reference="24224" radius="437.5" angle="24.3" color="green">
+			<description language="default" comment="R2" designation="Curved track R2 24224"/>
+			<description language="fr" comment="R2 Courbe de compensation aiguillage" designation="Rail courbe R2 24224"/>
+		</curved_track>
+		<curved_track reference="24215" radius="437.5" angle="15" color="green">
+			<description language="default" comment="R2" designation="Curved track R2 24215"/>
+			<description language="fr" comment="R2" designation="Rail courbe R2 24215"/>
+		</curved_track>
+		<curved_track reference="24207" radius="437.5" angle="7.5" color="green">
+			<description language="default" comment="R2" designation="Curved track R2 24207"/>
+			<description language="fr" comment="R2" designation="Rail courbe R2 24207"/>
+		</curved_track>
+		<curved_track reference="24206" radius="437.5" angle="5.7" color="green">
+			<description language="default" comment="R2" designation="Curved track R2 24206"/>
+			<description language="fr" comment="R2 Courbe de complément aiguillage à 30°" designation="Rail courbe R2 24206"/>
+		</curved_track>
+		<curved_track reference="24330" radius="515" angle="30" color="yellow">
+			<description language="default" comment="R3" designation="Curved track R3 24330"/>
+			<description language="fr" comment="R3" designation="Rail courbe R3 24330"/>
+		</curved_track>
+		<curved_track reference="24430" radius="579.3" angle="30" color="purple">
+			<description language="default" comment="R4" designation="Curved track R4 24430"/>
+			<description language="fr" comment="R4 Cercle parallèle au rayon R4 avec entraxe de 64.3mm. 12 rails forment un cercle de 120cm de diamètre" designation="Rail courbe R4 24430"/>
+		</curved_track>
+		<curved_track reference="24530" radius="643.6" angle="30" color="light_gray">
+			<description language="default" comment="R5" designation="Curved track R5 24530"/>
+			<description language="fr" comment="R5 Cercle parallèle au rayon R5 avec entraxe de 64.3mm. 12 rails forment un cercle de 133cm de diamètre" designation="Rail courbe R5 24530"/>
+		</curved_track>
+		<curved_track reference="24912" radius="1114.6" angle="12.1" color="dark_gray">
+			<description language="default" comment="R9" designation="Curved track 24912"/>
+			<description language="fr" comment="Contre courbe pour aiguillages et croisements élancés. Convient également pour la création de voies" designation="Rail courbe R9 24912"/>
+		</curved_track>
+	</curved_tracks>
+	<!-- Special tracks -->
+	<special_tracks name="special_tracks">
+    </special_tracks>
+	<!-- three way turnouts -->
+	<three_way_turnouts name="three_way_turnouts">
+		<symetric_three_way_turnout reference="24630" length="188.3" radius="437.5" angle="24.3" color="green">
+			<description language="default" comment="" designation="Three way turnout 24630"/>
+			<description language="fr" comment="Géométrie de raccordement gauche-droite comme celle des aiguillages 24611-24612. Disposition asymétrique des pointes de coeurs et des lames. Deux leviers pour positionnement manuel.Peut être équipé de deux moteurs 74490 et de deux lanternes 74470. Exploitation Digital possible avec le décodeur 6083" designation="Aiguillage triple 24630"/>
+		</symetric_three_way_turnout>
+	</three_way_turnouts>
+	<!-- straight turnouts -->
+	<straight_turnouts name="straight_turnouts">
+		<straight_turnout reference="24611" length="188.3" radius="437.5" angle="24.3" direction="left" color="green">
+			<description language="default" comment="" designation="Straight turnout (left) 24711"/>
+			<description language="fr" comment="Avec levier manuel de commande. Peut être équipé ultérieurement d'un moteur électromagnétique 74490, d'une lanterne d'aiguillage 74470 et d'un décodeur digital 74460" designation="Aiguillage à gauche 24611"/>
+		</straight_turnout>
+		<straight_turnout reference="24612" length="188.3" radius="437.5" angle="24.3" direction="right" color="green">
+			<description language="default" comment="" designation="Straight turnout (right) 24711"/>
+			<description language="fr" comment="Avec levier manuel de commande. Peut être équipé ultérieurement d'un moteur électromagnétique 74490, d'une lanterne d'aiguillage 74470 et d'un décodeur digital 74460" designation="Aiguillage à droite 24612"/>
+		</straight_turnout>
+		<straight_turnout reference="24711" length="236.1" radius="1114.6" angle="12.1" direction="left" color="green">
+			<description language="default" comment="" designation="Straight turnout (left) 24711"/>
+			<description language="fr" comment="2 rails 24071 sont nécessaires aux extremités de l'aiguillage; Une bande latérale de talus de ballast appropriée est fournie avec l'aiguillage. Avec levier manuel de commande. Peut être équipé ultérieurement d'un moteur électromagnétique 74490, d'une lanterne d'aiguillage 74470 et d'un décodeur digital 74460" designation="Aiguillage élancé à gauche 24711"/>
+		</straight_turnout>
+		<straight_turnout reference="24712" length="236.1" radius="1114.6" angle="12.1" direction="right" color="green">
+			<description language="default" comment="" designation="Straight turnout (right) 24712"/>
+			<description language="fr" comment="2 rails 24071 sont nécessaires aux extremités de l'aiguillage; Une bande latérale de talus de ballast appropriée est fournie avec l'aiguillage. Avec levier manuel de commande. Peut être équipé ultérieurement d'un moteur électromagnétique 74490, d'une lanterne d'aiguillage 74470 et d'un décodeur digital 74460" designation="Aiguillage élancé à droite 24712"/>
+		</straight_turnout>
+	</straight_turnouts>
+	<!-- curved turnouts -->
+	<curved_turnouts name="curved_turnouts">
+  </curved_turnouts>
+	<!-- crossings -->
+	<crossings name="crossings">
+		<crossing reference="24649" length="103.3" angle="48.6" color="blue">
+			<description language="default" comment="" designation="Crossing 24649"/>
+			<description language="fr" comment="Croisement pour doubles bretelles ou croisements de voies" designation="Croisement 24649"/>
+		</crossing>
+		<crossing reference="24640" length="188.3" angle="24.3" color="blue">
+			<description language="default" comment="" designation="Crossing 24640"/>
+			<description language="fr" comment="Croisement élancé pour doubles bretelles ou croisements de voies" designation="Croisement élancé 24640"/>
+		</crossing>
+	</crossings>
+	<!-- double slip switchs -->
+	<double_slip_switchs name="double_slip_switchs">
+		<double_slip_switch reference="24740" length="236.1" angle="12.1" color="blue">
+			<description language="default" comment="" designation="Double slip switch 24740"/>
+			<description language="fr" comment="Les voies se croisant sont isolées électriquement. Nécessite aux 4 extrémités un rail 24071. Avec 2 pièces de talus en coin" designation="Traversée jonction double 24740"/>
+		</double_slip_switch>
+		<double_slip_switch reference="24624" length="188.3" angle="24.1" color="blue">
+			<description language="default" comment="" designation="Double slip switch 24624"/>
+			<description language="fr" comment="Equipé d'un moteur électromagnétique et d'une lanterne éclairée. Peut être équipée d'un décodeur Digital 74460" designation="Traversée jonction double 24624"/>
+		</double_slip_switch>
+	</double_slip_switchs>
+</track_system>
