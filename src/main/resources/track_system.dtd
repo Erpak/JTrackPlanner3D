@@ -1,0 +1,177 @@
+<!--
+ Copyright © 2011, Erpak 
+ 
+ This file is part of JTrackPlanner3D.
+
+ JTrackPlanner3D is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ JTrackPlanner3D is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with JTrackPlanner3D. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- XML Definition for JTrackPlanner track_system files -->
+<!-- WARNING : The measure units used in JTrackPlanner must be specified in millimeters and degrees -->
+
+<!-- DTD is too old, MUST be replaced by a XSD ! -->
+
+<!-- A track system must constains these elements  -->
+<!ELEMENT track_system ( track_system_infos, straight_tracks, curved_tracks, special_tracks, three_way_turnouts, straight_turnouts, curved_turnouts, crossings, double_slip_switchs)>
+
+<!ELEMENT track_system_infos (track_system_designation+, track_system_caracteristics, track_system_colors)>
+  <!ATTLIST track_system_infos scale CDATA #REQUIRED>
+  <!ATTLIST track_system_infos manufacturer CDATA #REQUIRED>
+  <!ATTLIST track_system_infos name CDATA #REQUIRED>
+  <!ATTLIST track_system_infos version CDATA #REQUIRED> 
+  <!ATTLIST track_system_infos author CDATA #REQUIRED> 
+
+<!-- Designation -->
+<!ELEMENT track_system_designation EMPTY>
+  <!ATTLIST track_system_designation language CDATA #REQUIRED>
+  <!ATTLIST track_system_designation designation CDATA #REQUIRED>
+  <!ATTLIST track_system_designation comment CDATA #IMPLIED>
+  
+<!-- Caracteristics contain general dimensions for the track system as witdh, heigth... -->
+<!ELEMENT track_system_caracteristics EMPTY>
+  <!ATTLIST track_system_caracteristics railway_width CDATA #REQUIRED>
+  <!ATTLIST track_system_caracteristics ballast_width CDATA #REQUIRED>  
+
+<!-- Colors for track elements -->
+<!ELEMENT track_system_colors (rgb_color*)>
+
+<!-- Colors definition -->
+<!ELEMENT rgb_color EMPTY>
+  <!ATTLIST rgb_color name CDATA #REQUIRED>
+  <!ATTLIST rgb_color comment CDATA #REQUIRED>
+  <!ATTLIST rgb_color r CDATA #REQUIRED>
+  <!ATTLIST rgb_color g CDATA #REQUIRED>
+  <!ATTLIST rgb_color b CDATA #REQUIRED>
+
+<!-- Track system elements type -->
+<!-- Rails droits -->
+<!ELEMENT straight_tracks (straight_track*)>
+  <!ATTLIST straight_tracks name CDATA #FIXED "straight_tracks">
+    
+<!-- Rails courbes -->
+<!ELEMENT curved_tracks (curved_track*)>
+  <!ATTLIST curved_tracks name CDATA #FIXED "curved_tracks">
+  
+<!-- Rails speciaux : decrocheurs, butoirs .. -->
+<!ELEMENT special_tracks (uncoupler_track*, end_track*, adapter_track*)>
+  <!ATTLIST special_tracks name CDATA #FIXED "special_tracks">
+  
+<!-- Aiguillages triples -->
+<!ELEMENT three_way_turnouts (symetric_three_way_turnout*, asymetric_three_way_turnout*)>
+  <!ATTLIST three_way_turnouts name CDATA #FIXED "three_way_turnouts">
+    
+<!-- Aiguillages droits -->
+<!ELEMENT straight_turnouts (straight_turnout*)>
+  <!ATTLIST straight_turnouts name CDATA #FIXED "straight_turnouts">
+  
+<!-- Aiguillages enroules -->
+<!ELEMENT curved_turnouts (curved_turnout*)>
+  <!ATTLIST curved_turnouts name CDATA #FIXED "curved_turnouts">
+  
+<!-- Croisements -->
+<!ELEMENT crossings (crossing*)>
+  <!ATTLIST crossings name CDATA #FIXED "crossings">
+  
+<!-- Traversee jonction -->
+<!ELEMENT double_slip_switchs (double_slip_switch*)>
+  <!ATTLIST double_slip_switchs name CDATA #FIXED "double_slip_switchs">
+
+<!-- Straight tracks features -->
+<!ELEMENT straight_track (description+)>
+  <!ATTLIST straight_track reference CDATA #REQUIRED>
+  <!ATTLIST straight_track length CDATA #REQUIRED>
+  <!ATTLIST straight_track color CDATA #REQUIRED>  
+
+<!-- Curve tracks features -->
+<!ELEMENT curved_track (description+)>
+  <!ATTLIST curved_track reference CDATA #REQUIRED>
+  <!ATTLIST curved_track radius CDATA #REQUIRED>
+  <!ATTLIST curved_track angle CDATA #REQUIRED>
+  <!ATTLIST curved_track color CDATA #REQUIRED>
+
+<!-- Special track : uncoupler -->
+<!ELEMENT uncoupler_track (description+)>
+  <!ATTLIST uncoupler_track reference CDATA #REQUIRED>
+  <!ATTLIST uncoupler_track length CDATA #REQUIRED>
+  <!ATTLIST uncoupler_track color CDATA #REQUIRED>  
+
+<!-- Special track : End track -->
+<!ELEMENT end_track (description+)>
+  <!ATTLIST end_track reference CDATA #REQUIRED>
+  <!ATTLIST end_track length CDATA #REQUIRED>
+  <!ATTLIST end_track color CDATA #REQUIRED>
+
+<!-- Special track : Adapter track -->
+<!ELEMENT adapter_track (description+)>
+  <!ATTLIST adapter_track reference CDATA #REQUIRED>
+  <!ATTLIST adapter_track length CDATA #REQUIRED>
+  <!ATTLIST adapter_track color CDATA #REQUIRED> 
+
+<!-- symetric_three_way_turnout -->
+<!ELEMENT symetric_three_way_turnout (description+)>
+  <!ATTLIST symetric_three_way_turnout reference CDATA #REQUIRED>
+  <!ATTLIST symetric_three_way_turnout length CDATA #REQUIRED>
+  <!ATTLIST symetric_three_way_turnout radius CDATA #IMPLIED>
+  <!ATTLIST symetric_three_way_turnout angle CDATA #IMPLIED>
+  <!ATTLIST symetric_three_way_turnout color CDATA #REQUIRED> 
+
+<!-- asymetric_three_way_turnout -->
+<!ELEMENT asymetric_three_way_turnout (description+)>
+  <!ATTLIST asymetric_three_way_turnout reference CDATA #REQUIRED>
+  <!ATTLIST asymetric_three_way_turnout length CDATA #REQUIRED>
+  <!ATTLIST asymetric_three_way_turnout first_turnout_start_pos CDATA #REQUIRED>
+  <!ATTLIST asymetric_three_way_turnout first_turnout_radius CDATA #REQUIRED>
+  <!ATTLIST asymetric_three_way_turnout first_turnout_angle CDATA #REQUIRED>
+  <!ATTLIST asymetric_three_way_turnout first_turnout_direction (left | right) #REQUIRED>
+  <!ATTLIST asymetric_three_way_turnout second_turnout_start_pos CDATA #REQUIRED>
+  <!ATTLIST asymetric_three_way_turnout second_turnout_radius CDATA #REQUIRED>
+  <!ATTLIST asymetric_three_way_turnout second_turnout_angle CDATA #REQUIRED>
+  <!ATTLIST asymetric_three_way_turnout second_turnout_direction (left | right) #REQUIRED>
+  <!ATTLIST asymetric_three_way_turnout color CDATA #REQUIRED>
+
+<!-- straight_turnout -->
+<!ELEMENT straight_turnout (description+)>
+  <!ATTLIST straight_turnout reference CDATA #REQUIRED>
+  <!ATTLIST straight_turnout length CDATA #REQUIRED>  
+  <!ATTLIST straight_turnout radius CDATA #REQUIRED>
+  <!ATTLIST straight_turnout angle CDATA #REQUIRED>
+  <!ATTLIST straight_turnout direction (left | right) #REQUIRED>
+  <!ATTLIST straight_turnout color CDATA #REQUIRED>  
+
+<!-- curved_turnout -->
+<!ELEMENT curved_turnout (description+)>
+  <!ATTLIST curved_turnout reference CDATA #REQUIRED>
+  <!ATTLIST curved_turnout radius CDATA #REQUIRED>
+  <!ATTLIST curved_turnout angle CDATA #REQUIRED>
+  <!ATTLIST curved_turnout color CDATA #REQUIRED>  
+
+<!-- crossing -->
+<!ELEMENT crossing (description+)>
+  <!ATTLIST crossing reference CDATA #REQUIRED>
+  <!ATTLIST crossing length CDATA #REQUIRED>
+  <!ATTLIST crossing angle CDATA #REQUIRED>
+  <!ATTLIST crossing  color CDATA #REQUIRED>
+  
+<!-- double_slip_switch -->
+<!ELEMENT double_slip_switch (description+)>
+  <!ATTLIST double_slip_switch reference CDATA #REQUIRED>
+  <!ATTLIST double_slip_switch length CDATA #REQUIRED>
+  <!ATTLIST double_slip_switch angle CDATA #REQUIRED>  
+  <!ATTLIST double_slip_switch  color CDATA #REQUIRED>
+
+<!-- description -->
+<!ELEMENT description EMPTY>
+  <!ATTLIST description language CDATA #REQUIRED>
+  <!ATTLIST description designation CDATA #REQUIRED>
+  <!ATTLIST description comment CDATA #IMPLIED> 

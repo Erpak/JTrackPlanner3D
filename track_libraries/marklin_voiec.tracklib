@@ -18,7 +18,8 @@
 -->
 
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<!DOCTYPE track_system SYSTEM "trackPlanner\JTrackPlanner\src\jTrackPlanner\resources\track_system.dtd">-->
+<!-- DTD is too old, make a XSD instead -->
+<!--<!DOCTYPE track_system SYSTEM "JTrackPlanner3D\src\jTrackPlanner\resources\track_system.dtd">-->
 
 <track_system>
 	<track_system_infos scale="HO-1:87" manufacturer="Märklin" name="C_track" version="0.1" author="Erpak">
