@@ -41,6 +41,7 @@ import com.erpak.jtrackplanner3d.graphics.symbols.StraightTrackSymbol;
 import com.erpak.jtrackplanner3d.graphics.symbols.StraightTurnoutSymbol;
 import com.erpak.jtrackplanner3d.graphics.symbols.SymetricThreeWayTurnoutSymbol;
 import com.erpak.jtrackplanner3d.utils.software.ResourcesManager;
+import java.io.File;
 
 /**
 * <p>Title: JTrackPlanner3D</p>
@@ -62,7 +63,7 @@ public class LibraryReader {
      * create a new LibraryReader object with the library file name
      * @param fileName Name of the library file
      */
-    public LibraryReader(String fileName){
+    public LibraryReader(File libraryFile){
 
         TrackSystem trackSystem = null;
         TracksTreeCellRenderer renderer =  new TracksTreeCellRenderer();
@@ -88,7 +89,7 @@ public class LibraryReader {
             DefaultMutableTreeNode treeElement;  
             
             // Load the xml library file
-            InputStream in = new FileInputStream(fileName); 
+            InputStream in = new FileInputStream(libraryFile); 
             EntityResolver resolver = new EntityResolver(){
                 public InputSource resolveEntity(String publicId, String systemId) {
                     logger.debug("Public id : " + publicId);
@@ -261,8 +262,8 @@ public class LibraryReader {
             tree = new JTree(treeTop); 
         }
         catch(Exception ex){
-            logger.error("Unable to load track trackSystem library");
-            logger.error(ex.toString());
+            logger.error("Unable to load track trackSystem library", ex);
+            // Todo : Throws an exception and display an error box instaed of displaying atree with scrap data
             tree = new JTree();
         }
      

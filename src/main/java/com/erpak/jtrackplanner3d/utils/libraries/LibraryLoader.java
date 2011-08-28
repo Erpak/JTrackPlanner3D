@@ -19,7 +19,7 @@
 package com.erpak.jtrackplanner3d.utils.libraries;
 
 import java.io.File;
-import java.util.Vector;
+import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 /**
@@ -30,6 +30,10 @@ import org.apache.log4j.Logger;
 */
 public class LibraryLoader {
 
+    private final static String TRACK_LIB_EXTENSION = ".tracklib";
+    private final static String TRACK_LIB__ALT_EXTENSION = ".xml";
+    private final static String TRACK_LIB_FOLDER = "track_libraries";
+    
     /** logger */
     static Logger logger = Logger.getLogger(LibraryLoader.class);
     
@@ -38,18 +42,7 @@ public class LibraryLoader {
      * Pour chaque fichier, ouverture et recuperation des infos "nom de library, echelle, nom de fichier"
      * @return
      */
-    public Vector<String> getLibraryList(){
-    	//Vector<Library> libList = new Vector<Library>();
-    	Vector<String> libList = new Vector<String>();
-    	//libList.add(new Library());
-    	libList.add("HO - Marklin Voie C");
-    	//libList.add(new Library());
-    	libList.add("HO - Roco Rocoline");
-    	//libList.add(new Library());
-    	libList.add("HO - Trix Voie C");
-    	//libList.add(new Library());
-    	libList.add("N - Trix");
-    	//return libList;
+    public ArrayList<File> getLibraryList(){
     	return loadLibraries();
     }
     
@@ -57,20 +50,16 @@ public class LibraryLoader {
      * Get xml files in libraries folder
      * soit un objet library avec nom, echelle, description ... Nécéssité d'ouvrir le fichier lib (avantage, si fichier invalide, n'apparait pas dans la liste)
      * Soit simplement le nom du fichier.
-     * 
      */
-    private Vector<String> loadLibraries(){
-        // Directory path here
-    	String path = "track_libraries"; 
-    	String file;
-    	File folder = new File(path);
+    private ArrayList<File> loadLibraries(){
+    	File folder = new File(TRACK_LIB_FOLDER);
     	File[] listOfFiles = folder.listFiles();
-    	Vector<String> fileLib = new Vector<String>();
-    	for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-    	    file = listOfFiles[i].getName();
-                if (file.endsWith(".tracklib")) {
-                    fileLib.add(file); 
+    	ArrayList<File> fileLib = new ArrayList<File>();
+    	for (File file : listOfFiles) {
+            if (file.isFile()) {
+                if (file.getName().endsWith(TRACK_LIB_EXTENSION) || file.getName().endsWith(TRACK_LIB__ALT_EXTENSION)) {
+                    fileLib.add(file);
+                    logger.debug("file added : " + file.getName() + "File URI : " + file.getAbsolutePath());
     	        }
     	    }
     	}

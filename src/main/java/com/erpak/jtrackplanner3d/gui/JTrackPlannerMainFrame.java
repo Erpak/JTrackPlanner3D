@@ -309,12 +309,14 @@ public class JTrackPlannerMainFrame extends JFrame {
         this.setJMenuBar(jMenuBar);
         contentPane.add(jToolBar, BorderLayout.NORTH);
         contentPane.add(statusBar, BorderLayout.SOUTH);
+        
+        // creates a new empty project 
         project = new Project();
         contentPane.add(project, BorderLayout.CENTER);
     }
     
     /**
-     * Project | New action performed
+     * Project | New project action performed
      * @param e ActionEvent
      */
     public void jMenuProjectNew_actionPerformed(ActionEvent e) {
@@ -329,7 +331,8 @@ public class JTrackPlannerMainFrame extends JFrame {
             dlg.setModal(true);
             dlg.show();
             if (dlg != null && dlg.isValidated()) {
-                project.init(dlg.getProjectName(), dlg.getLibraryName(), "");
+                // Todo : Opend the track lib file
+                project.init(dlg.getProjectName(), dlg.getLibraryFile(), dlg.getAuthorName());
                 this.validate();
                 this.setTitle(ResourcesManager
                         .getLanguageDependentString("MainWindowTitleLabel")

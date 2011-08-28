@@ -27,6 +27,7 @@ import javax.swing.JTree;
 
 import com.erpak.jtrackplanner3d.graphics.symbols.TrackSymbolTransfertHandler;
 import com.erpak.jtrackplanner3d.xml.LibraryReader;
+import java.io.File;
 
 /**
 * <p>Title: JTrackPlanner3D</p>
@@ -68,9 +69,10 @@ public class Project extends JSplitPane {
      * @param libraryName Library Name
      * @param author Author name
      */
-    public Project (String name, String libraryName, String author){
+    // Not used !! To remove
+    /*public Project (String name, String libraryName, String author){
         init(name, libraryName, author);
-    }
+    }*/
 
     /**
      * Initialize the project
@@ -78,11 +80,11 @@ public class Project extends JSplitPane {
      * @param libraryFileName Library file name
      * @param author Author name
      */
-    public void init(String name, String libraryFileName, String author){
+    public void init(String name, File libraryFile, String author){
         this.name = name;
         this.author = author;
         // load the library tree
-        LibraryReader libraryReader = new LibraryReader(libraryFileName);
+        LibraryReader libraryReader = new LibraryReader(libraryFile);
         libraryTree = libraryReader.getTree();
         // Drag & drop
         TrackSymbolTransfertHandler trackSymbolTransfertHandler = new TrackSymbolTransfertHandler();
