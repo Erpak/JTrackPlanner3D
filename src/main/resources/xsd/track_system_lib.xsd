@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright © 2011, Erpak 
+ 
+ This file is part of JTrackPlanner3D.
+
+ JTrackPlanner3D is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ JTrackPlanner3D is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with JTrackPlanner3D. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="track_system">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="track_system_infos"/>
+        <xs:element ref="straight_tracks"/>
+        <xs:element ref="curved_tracks"/>
+        <xs:element ref="special_tracks"/>
+        <xs:element ref="three_way_turnouts"/>
+        <xs:element ref="straight_turnouts"/>
+        <xs:element ref="curved_turnouts"/>
+        <xs:element ref="crossings"/>
+        <xs:element ref="double_slip_switchs"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="track_system_infos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="track_system_designation"/>
+        <xs:element ref="track_system_caracteristics"/>
+        <xs:element ref="track_system_colors"/>
+      </xs:sequence>
+      <xs:attribute name="author" use="required" type="xs:NCName"/>
+      <xs:attribute name="manufacturer" use="required" type="xs:NCName"/>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+      <xs:attribute name="scale" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="version" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="track_system_designation">
+    <xs:complexType>
+      <xs:attribute name="comment" use="required"/>
+      <xs:attribute name="designation" use="required"/>
+      <xs:attribute name="language" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="track_system_caracteristics">
+    <xs:complexType>
+      <xs:attribute name="ballast_width" use="required" type="xs:integer"/>
+      <xs:attribute name="railway_width" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="track_system_colors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="rgb_color"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rgb_color">
+    <xs:complexType>
+      <xs:attribute name="b" use="required" type="xs:integer"/>
+      <xs:attribute name="comment" use="required"/>
+      <xs:attribute name="g" use="required" type="xs:integer"/>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+      <xs:attribute name="r" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="straight_tracks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="straight_track"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="straight_track">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="description"/>
+      </xs:sequence>
+      <xs:attribute name="color" use="required" type="xs:NCName"/>
+      <xs:attribute name="length" use="required" type="xs:decimal"/>
+      <xs:attribute name="reference" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="curved_tracks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="curved_track"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="curved_track">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="description"/>
+      </xs:sequence>
+      <xs:attribute name="angle" use="required" type="xs:decimal"/>
+      <xs:attribute name="color" use="required" type="xs:NCName"/>
+      <xs:attribute name="radius" use="required" type="xs:decimal"/>
+      <xs:attribute name="reference" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="special_tracks">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="three_way_turnouts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="symetric_three_way_turnout"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="symetric_three_way_turnout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="description"/>
+      </xs:sequence>
+      <xs:attribute name="angle" use="required" type="xs:decimal"/>
+      <xs:attribute name="color" use="required" type="xs:NCName"/>
+      <xs:attribute name="length" use="required" type="xs:decimal"/>
+      <xs:attribute name="radius" use="required" type="xs:decimal"/>
+      <xs:attribute name="reference" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="straight_turnouts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="straight_turnout"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="straight_turnout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="description"/>
+      </xs:sequence>
+      <xs:attribute name="angle" use="required" type="xs:decimal"/>
+      <xs:attribute name="color" use="required" type="xs:NCName"/>
+      <xs:attribute name="direction" use="required" type="xs:NCName"/>
+      <xs:attribute name="length" use="required" type="xs:decimal"/>
+      <xs:attribute name="radius" use="required" type="xs:decimal"/>
+      <xs:attribute name="reference" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="curved_turnouts">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crossings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="crossing"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crossing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="description"/>
+      </xs:sequence>
+      <xs:attribute name="angle" use="required" type="xs:decimal"/>
+      <xs:attribute name="color" use="required" type="xs:NCName"/>
+      <xs:attribute name="length" use="required" type="xs:decimal"/>
+      <xs:attribute name="reference" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="double_slip_switchs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="double_slip_switch"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="double_slip_switch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="description"/>
+      </xs:sequence>
+      <xs:attribute name="angle" use="required" type="xs:decimal"/>
+      <xs:attribute name="color" use="required" type="xs:NCName"/>
+      <xs:attribute name="length" use="required" type="xs:decimal"/>
+      <xs:attribute name="reference" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description">
+    <xs:complexType>
+      <xs:attribute name="comment" use="required"/>
+      <xs:attribute name="designation" use="required"/>
+      <xs:attribute name="language" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
