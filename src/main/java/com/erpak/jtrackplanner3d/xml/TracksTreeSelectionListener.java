@@ -51,8 +51,6 @@ public class TracksTreeSelectionListener implements TreeSelectionListener {
      * @see javax.swing.event.TreeSelectionListener#valueChanged(javax.swing.event.TreeSelectionEvent)
      */
     public void valueChanged(TreeSelectionEvent arg0) {
-        // TODO Auto-generated method stub
-        //System.out.println(arg0.getNewLeadSelectionPath().toString());
         JTree tree = (JTree)arg0.getSource();
         DefaultMutableTreeNode node = (DefaultMutableTreeNode)tree.getLastSelectedPathComponent();
         if (node != null){

@@ -28,39 +28,39 @@ import java.net.URL;
 */
 public class Library {
 
-	private String manufacturer;
-	private String scale;
-	private String designation;
-	private String comment;
-	private URL url;
+    private String manufacturer;
+    private String scale;
+    private String designation;
+    private String comment;
+    private URL url;
 	
-	public Library(String manufacturer, String scale, String designation, String comment, URL url){
-		this.manufacturer = manufacturer;
-		this.scale = scale;
-		this.designation = designation;
-		this.comment = comment;
-		this.url = url;
-	}
+    public Library(String manufacturer, String scale, String designation, String comment, URL url){
+        this.manufacturer = manufacturer;
+	this.scale = scale;
+	this.designation = designation;
+	this.comment = comment;
+	this.url = url;
+    }
 
-	public String getManufacturer() {
-		return manufacturer;
-	}
+    public String getManufacturer() {
+	return manufacturer;
+    }
 
-	public String getScale() {
-		return scale;
-	}
+    public String getScale() {
+	return scale;
+    }
 
-	public String getDesignation() {
-		return designation;
-	}
+    public String getDesignation() {
+	return designation;
+    }
 
-	public String getComment() {
-		return comment;
-	}
+    public String getComment() {
+	return comment;
+    }
 
-	public URL getUrl() {
-		return url;
-	}
+    public URL getUrl() {
+	return url;
+    }
 	
 }
 

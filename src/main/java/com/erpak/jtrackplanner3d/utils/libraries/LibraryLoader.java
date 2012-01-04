@@ -38,8 +38,8 @@ public class LibraryLoader {
     static Logger logger = Logger.getLogger(LibraryLoader.class);
     
     /**
-     * Recuperation de la liste des fichiers xml (libraries)
-     * Pour chaque fichier, ouverture et recuperation des infos "nom de library, echelle, nom de fichier"
+     * Get library file list (libraries)
+     * for each file, opening and reading informations library name, scale and file name
      * @return
      */
     public ArrayList<File> getLibraryList(){
@@ -47,9 +47,8 @@ public class LibraryLoader {
     }
     
     /**
-     * Get xml files in libraries folder
-     * soit un objet library avec nom, echelle, description ... Nécéssité d'ouvrir le fichier lib (avantage, si fichier invalide, n'apparait pas dans la liste)
-     * Soit simplement le nom du fichier.
+     * Load tracklib (or xml) JTrackplanner library
+     * @return An array of files
      */
     private ArrayList<File> loadLibraries(){
     	File folder = new File(TRACK_LIB_FOLDER);

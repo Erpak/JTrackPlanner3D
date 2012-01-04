@@ -20,7 +20,6 @@ package com.erpak.jtrackplanner3d.graphics;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import org.apache.log4j.Logger;
 
 /**
@@ -67,7 +66,6 @@ public class TrackElementMouseListener implements MouseListener {
      */
     public void mouseEntered(MouseEvent arg0) {
         // TODO Auto-generated method stub
-
     }
 
     /* (non-Javadoc)
@@ -75,7 +73,6 @@ public class TrackElementMouseListener implements MouseListener {
      */
     public void mouseExited(MouseEvent arg0) {
         // TODO Auto-generated method stub
-
     }
 
     /* (non-Javadoc)
@@ -83,7 +80,6 @@ public class TrackElementMouseListener implements MouseListener {
      */
     public void mousePressed(MouseEvent arg0) {
         // TODO Auto-generated method stub
-
     }
 
     /* (non-Javadoc)
@@ -91,7 +87,6 @@ public class TrackElementMouseListener implements MouseListener {
      */
     public void mouseReleased(MouseEvent arg0) {
         // TODO Auto-generated method stub
-
     }
 
 }

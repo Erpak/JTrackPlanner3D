@@ -25,9 +25,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.GeneralPath;
-
 import javax.swing.JComponent;
-
 import com.erpak.jtrackplanner3d.graphics.symbols.TrackSymbol;
 import com.erpak.jtrackplanner3d.utils.software.IdManager;
 

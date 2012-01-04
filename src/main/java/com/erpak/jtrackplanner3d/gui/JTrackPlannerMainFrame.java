@@ -1,5 +1,5 @@
 /**
-** Copyright © 2011, Erpak 
+* Copyright © 2011, Erpak 
 * 
 * This file is part of JTrackPlanner3D.
 *

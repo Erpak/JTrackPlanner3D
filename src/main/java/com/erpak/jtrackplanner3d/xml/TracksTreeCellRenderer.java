@@ -41,11 +41,15 @@ import com.erpak.jtrackplanner3d.graphics.symbols.TrackSymbol;
  */
 public class TracksTreeCellRenderer extends DefaultTreeCellRenderer {
     
+    /* icons */
     private ImageIcon straigthTrackIcon;
     private ImageIcon curvedTrackIcon;
     private ImageIcon straightTurnoutTrackIcon;
     private ImageIcon crossingTrackIcon;
     
+    /**
+     * Constructor
+     */
     public TracksTreeCellRenderer(){
         straigthTrackIcon = null;
         curvedTrackIcon = null;
@@ -54,7 +58,7 @@ public class TracksTreeCellRenderer extends DefaultTreeCellRenderer {
     }
     
     /**
-     * 
+     * Set icon for straight track element
      * @param icon 
      */
     public void setStraigthTrackIcon(ImageIcon icon){
@@ -62,7 +66,7 @@ public class TracksTreeCellRenderer extends DefaultTreeCellRenderer {
     }
     
     /**
-     * 
+     * Set icon for curved track element
      * @param icon 
      */
     public void setCurvedTrackIcon(ImageIcon icon){
@@ -70,7 +74,7 @@ public class TracksTreeCellRenderer extends DefaultTreeCellRenderer {
     }    
     
     /**
-     * 
+     * Set icon for straight turnout track element
      * @param icon 
      */
     public void setStraightTurnoutTrackIcon(ImageIcon icon){
@@ -78,7 +82,7 @@ public class TracksTreeCellRenderer extends DefaultTreeCellRenderer {
     }
     
     /**
-     * 
+     * Set icon for crossing track element
      * @param icon 
      */
     public void setCrossingTrackIcon(ImageIcon icon){
@@ -86,16 +90,9 @@ public class TracksTreeCellRenderer extends DefaultTreeCellRenderer {
     }    
     
     /**
-     * 
-     * @param tree 
-     * @param value 
-     * @param sel 
-     * @param expanded 
-     * @param leaf 
-     * @param row 
-     * @param hasFocus 
-     * @return 
+     * @see javax.swing.tree.DefaultTreeCellRenderer
      */
+    @Override
     public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus){
         TrackSymbol symbol;
         super.getTreeCellRendererComponent( tree, value, sel, expanded, leaf, row, hasFocus );
@@ -115,16 +112,16 @@ public class TracksTreeCellRenderer extends DefaultTreeCellRenderer {
         else if(isStraightTurnoutSymbol(value)){
             this.setIcon(straightTurnoutTrackIcon);
         }        
-        
         return this;
     }
 
     /**
      * 
-     * @param value 
+     * @param value  
      * @return 
      */
     protected boolean isTrackSymbol(Object value){
+        //TODO secure the cast
         DefaultMutableTreeNode node = (DefaultMutableTreeNode)value;
         if( node.getUserObject() instanceof TrackSymbol ){        
             return true;
@@ -138,6 +135,7 @@ public class TracksTreeCellRenderer extends DefaultTreeCellRenderer {
      * @return 
      */
     protected boolean isStraightTrackSymbol(Object value) {
+        //TODO secure the cast
         DefaultMutableTreeNode node = (DefaultMutableTreeNode)value;
         if( node.getUserObject() instanceof StraightTrackSymbol ){        
             return true;
@@ -151,6 +149,7 @@ public class TracksTreeCellRenderer extends DefaultTreeCellRenderer {
      * @return
      */
     protected boolean isCurvedTrackSymbol(Object value) {
+        //TODO secure the cast
         DefaultMutableTreeNode node = (DefaultMutableTreeNode)value;
         if( node.getUserObject() instanceof CurvedTrackSymbol ){        
             return true;
@@ -164,6 +163,7 @@ public class TracksTreeCellRenderer extends DefaultTreeCellRenderer {
      * @return
      */
     protected boolean isStraightTurnoutSymbol(Object value) {
+        //TODO secure the cast
         DefaultMutableTreeNode node = (DefaultMutableTreeNode)value;
         if( node.getUserObject() instanceof StraightTurnoutSymbol ){        
             return true;

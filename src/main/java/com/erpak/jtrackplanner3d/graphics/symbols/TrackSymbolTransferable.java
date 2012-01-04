@@ -38,32 +38,44 @@ public class TrackSymbolTransferable implements Transferable {
     /** Logger */
     static Logger logger = Logger.getLogger(TrackSymbolTransferable.class);    
     
-    /** Creates a new instance of TrackSymbolTransferable */
+    /**
+     * 
+     * @param trackSymbol 
+     */
     public TrackSymbolTransferable(TrackSymbol trackSymbol){
         this.trackSymbol = trackSymbol;
     }
 
     /**
-     * La liste des flavor supportees, pour que les cibles potentielles sachent si elles 
-     * peuvent recevoir la donnee. Les flavor sont donnees par ordre de preference. 
-     */ 
+     * 
+     * @return 
+     */
+    @Override
     public DataFlavor[] getTransferDataFlavors() {
         DataFlavor[] result= new DataFlavor[2]; 
-        // D'abord, le trackSymbolFlavor
         result[0]= TrackSymbolFlavorFactory.getTrackSymbolFlavor(); 
-        // Ensuite, le texte 
         result[1]= DataFlavor.stringFlavor; 
         return result; 
     } 
     
-    /**  Dit si nous acceptons de retourner une flavor particuliere. */
+    /**
+     * 
+     * @param flavor
+     * @return 
+     */
+    @Override
     public boolean isDataFlavorSupported(DataFlavor flavor) { 
         return TrackSymbolFlavorFactory.getTrackSymbolFlavor().equals(flavor) || DataFlavor.stringFlavor.equals(flavor); 
     } 
     
-    /** La r�cup�ration des donn�es proprement dite. 
-     *  Renvoie un objet selon la flavor demand�e (Personne ou String).
+    /**
+     * 
+     * @param flavor
+     * @return
+     * @throws UnsupportedFlavorException
+     * @throws IOException 
      */
+    @Override
     public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
         if (TrackSymbolFlavorFactory.getTrackSymbolFlavor().equals(flavor)) 
             return trackSymbol;

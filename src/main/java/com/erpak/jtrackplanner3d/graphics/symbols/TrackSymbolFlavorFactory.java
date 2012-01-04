@@ -36,6 +36,10 @@ public class TrackSymbolFlavorFactory {
     public TrackSymbolFlavorFactory() {
     }
     
+    /**
+     * 
+     * @return 
+     */
     public final static DataFlavor getTrackSymbolFlavor(){
         /** Custom flavor */
         DataFlavor trackSymbolFlavor;

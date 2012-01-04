@@ -45,10 +45,11 @@ public class TrackSymbolTransfertHandler extends TransferHandler {
     }
     
     /**
-     * Cree un objet transferable adapte, donc un PersonneTransferable.
-     * Recoit comme parametre la source du drag and drop
-     * (ce qui permet de partager des PersonneTransferHandler)
+     * 
+     * @param component
+     * @return 
      */
+    @Override
     protected Transferable createTransferable(JComponent component) {
         logger.debug("Export from : " + component.getClass().getName());
         TrackSymbol trackSymbol = null;
@@ -65,18 +66,22 @@ public class TrackSymbolTransfertHandler extends TransferHandler {
     }
     
     /**
-     * Permet de dire si le drag est possible. Dans notre cas, il l'est toujours.
-     * cette methode peut renvoyer COPY, NONE, MOVE, COPY_OR_MOVE.
-     * Si NONE est renvoye, le drag and drop sera impossible.
+     * 
+     * @param c
+     * @return 
      */
+    @Override
     public int getSourceActions(JComponent c) {
         return COPY;
     }
     
     /**
-     * Teste si les donnees proposee comportent une PersonneFlavor.
-     * On pourrait aussi accepter des donnees de mode texte, par exemple.
+     * 
+     * @param component
+     * @param flavors
+     * @return 
      */
+    @Override    
     public boolean canImport(JComponent component, DataFlavor[] flavors) {
         for (int i = 0; i < flavors.length; i++) {
             if (TrackSymbolFlavorFactory.getTrackSymbolFlavor().equals(flavors[i])) {
@@ -87,16 +92,16 @@ public class TrackSymbolTransfertHandler extends TransferHandler {
     }
 
     /**
-     * L'importation de donnees proprement dite.
-     * @param component : la cible du transfert.
-     * @param transferable : donnees a transferer
+     * 
+     * @param component
+     * @param transferable
+     * @return 
      */
+    @Override
     public boolean importData(JComponent component, Transferable transferable) {
         if (canImport(component, transferable.getTransferDataFlavors())) {
             try {
-            	// On extrait l'objet TrackSymbol du transferable
                 TrackSymbol trackSymbol = (TrackSymbol)transferable.getTransferData(TrackSymbolFlavorFactory.getTrackSymbolFlavor());
-                // On le range dans la cible.
                 logger.debug("Import to : " + component.getClass().getName());
                 GraphicArea gArea = (GraphicArea)component;
                 gArea.addTrackElement(trackSymbol, (int)(gArea.getMousePosition().getX()), (int)(gArea.getMousePosition().getY()));
