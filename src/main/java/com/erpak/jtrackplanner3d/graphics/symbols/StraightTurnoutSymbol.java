@@ -39,6 +39,15 @@ public class StraightTurnoutSymbol extends TrackSymbol {
     /** Directions */
     static final String RIGHT = "RIGHT";
     static final String LEFT = "LEFT";
+    
+    // TODO : Use this enum instead of constants
+    // Move this enum in trackSymbol abstract class
+    public enum TurnoutDirections{
+        STRAIGHT,
+        RIGHT,
+        LEFT
+    }
+    
     /** Straight turnout length */
     private float length;
     /** Straight turnout radius */
@@ -162,7 +171,7 @@ public class StraightTurnoutSymbol extends TrackSymbol {
         buffer.append(this.radius);
         buffer.append(" mm, Angle : ");
         buffer.append(this.angle);
-        buffer.append(" �. ");
+        buffer.append(" °. ");
         buffer.append(this.comments);
         return buffer.toString();
     }

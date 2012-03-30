@@ -1,0 +1,22 @@
+
+// First of all : finish to 2D display mode
+
+
+- Take as example Wintrack
+
+- Each element is represented by simple 2 shapes, only the external lines, and with a yellow circle at each extremity.
+	* yellow circle can be selected
+	* 
+
+
+- Track selection tool :
+	* select an element, this element stay selected and an icon coresponding to the element is displayed in a button at the top of the selection box
+	* select one extremity (if no extremity selected, the element is added at the center of the screen)
+	* push the selection button to add the element
+	* in the tool bar, there is 2 buttons to change the position of the selected element
+
+
+- To add :
+
+	* Layers : each new element is added in the current layer
+	* Layout : containing information about the current layout

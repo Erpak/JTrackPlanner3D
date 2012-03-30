@@ -40,8 +40,8 @@ public class StraightTrackSymbol extends TrackSymbol {
     private String[] properties = {"length"};
     /** */
     private PointsSet pointsSet;
-    /** Liste des extremites */ 
-    private ArrayList listeExtremites;
+    /** extrmity list */ 
+    private ArrayList extremities;
     
     /**
      * @param trackSystem
@@ -63,10 +63,10 @@ public class StraightTrackSymbol extends TrackSymbol {
     public StraightTrackSymbol(TrackSystem trackSystem, String reference, String designation, String comments, float length, String colorKey) {
         super(trackSystem, reference, designation, comments, colorKey);
         this.length = length;
-        listeExtremites = new ArrayList(2);
-        listeExtremites.add(new Extremity(new Point3D(0.0F, trackSystem.getBallastWidth()+0.001F), new Point3D(), trackSystem.getBallastWidth()+0.001F));
-        listeExtremites.add(new Extremity(new Point3D(length, 0), new Point3D(length, trackSystem.getBallastWidth()+0.001F), trackSystem.getBallastWidth()+0.001F));
-        pointsSet = new PointsSet(listeExtremites);
+        extremities = new ArrayList(2);
+        extremities.add(new Extremity(new Point3D(0.0F, trackSystem.getBallastWidth()+0.001F), new Point3D(), trackSystem.getBallastWidth()+0.001F));
+        extremities.add(new Extremity(new Point3D(length, 0), new Point3D(length, trackSystem.getBallastWidth()+0.001F), trackSystem.getBallastWidth()+0.001F));
+        pointsSet = new PointsSet(extremities);
     }
 
     /* (non-Javadoc)
@@ -119,7 +119,7 @@ public class StraightTrackSymbol extends TrackSymbol {
      * @return An arraylist object
      */
     public ArrayList getExtremityList(){
-        return this.listeExtremites;
+        return this.extremities;
     }    
 
 }

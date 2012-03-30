@@ -18,7 +18,6 @@
 */
 package com.erpak.jtrackplanner3d.graphics.symbols;
 
-import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
 /**
@@ -161,5 +160,5 @@ public class Extremity implements Serializable {
         return "Extremity [" + this.minus + "|" + this.plus + "|" + (180 * angle) / Math.PI + "(" + realhint + ","
                 + realhint2 + ")]";
     }
-
+    
 }
